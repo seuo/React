@@ -1,0 +1,10 @@
+.cats {
+    display:flex;
+    justify-content: space-around;
+}
+
+.feed {
+    background-color:orange;
+    width:6em;
+
+}
