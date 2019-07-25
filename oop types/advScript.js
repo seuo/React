@@ -40,7 +40,7 @@ class advDog{
         document.write(' My name is ' + this.name); 
     }
 
-    // bark(){ //arrow function works only for adv dog
+    // bark(){  //declarative
     //     document.write(' My name is ' + this.name); 
     // }
 
