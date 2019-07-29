@@ -24,18 +24,13 @@ class App extends Component {
   handleAddNoteClick = (e) => {
       e.preventDefault();
 
-      // let newNotes = this.state.notes;
-      // newNotes.push({
-      //   id:Date.now(),
-      //   text:this.state.noteInputValue
-      // });
-
       let note = {
         id:Date.now(),
         text:this.state.noteInputValue
       }
 
       console.log(Date.now());
+      
       let newNotes = [...this.state.notes,note];
       // let newNotes = [note,...this.state.notes];
 
@@ -43,6 +38,12 @@ class App extends Component {
         notes:newNotes,
         noteInputValue: ''
       });
+
+      // let newNotes = this.state.notes;
+      // newNotes.push({
+      //   id:Date.now(),
+      //   text:this.state.noteInputValue
+      // });
   }
 
   removeNote = (noteId) => {
