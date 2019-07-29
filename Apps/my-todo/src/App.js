@@ -26,7 +26,7 @@ class App extends Component {
         this.textInput.focus();
     }
 
-    handleKeyPress = (event) => {
+    handleKeyPress = (e) => {
       if (event.key === 'Enter') { // add enter key on input
         let notesArr = this.state.notes;
         notesArr.push(this.state.noteText);
