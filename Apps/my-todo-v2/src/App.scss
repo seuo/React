@@ -1,0 +1,136 @@
+
+* {
+    margin: 0px;
+    box-sizing: border-box;
+  }
+  html, body {
+    width: 100%;
+    height: 100%;
+  }
+  body {
+    background: #f1f1f1;
+  }
+
+
+/* Color Theme Swatches in RGBA */
+$c1: rgba(242,109,133, 1);
+$c2: rgba(191,32,74, 1);
+$c3: rgba(192,207,216, 1);
+$c4: rgba(13,104,114, 1);
+$c5: rgba(13,114,114, 1);
+$c6: rgb(223, 231, 236);
+
+  #root {
+    width: 100%;
+    height: 100%;
+  }
+  /* Our App Container */
+  .container {
+    padding-bottom: 80px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    .collection {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        flex: 1 0 70%;
+        .center {
+            display:flex;
+            flex:1 0 70%;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+  }
+  /* The header */
+  .header {
+    font-size: 22px;
+    font-weight: bold;
+    font-style: italic;
+    color: $c3;
+    background:$c4;
+    padding: 40px;
+    text-align: center;
+    margin-bottom:.5em;
+  }
+  /* The note */
+  .todoItem {
+    flex-direction: column;
+    justify-content: space-between;
+    display: flex;
+    color: $c4;
+    font-size:1.2em;
+    margin: .5em 1em;
+    background: $c3;
+    border-radius:.5em;
+    cursor: pointer;
+    box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.1);
+    -webkit-box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.1);
+    -moz-box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.1);
+    transition: transform .5s ease;
+    span {
+        padding: 1em;
+    }
+
+      .noteClose {
+        display:flex;
+        align-items: center;
+        align-self: flex-end;
+        background-color:$c1;
+        position:absolute;
+        border-radius: 0em .5em .5em 0em;
+        .closeBtn {
+          font-size:.8em;
+          color:$c2;  
+          padding:1.4em;
+        }
+      }
+  }
+  .todoItem:hover {
+    transform: scale(1.03);
+    background-color:$c6;
+    box-shadow: .1em .3em .7em .05em rgba(0, 0, 0, 0.25);
+    z-index: 9;
+  }
+  /* The add note button */
+  .btn {
+    display:flex;
+    position: fixed;
+    z-index: 1;
+    right: 0px;
+    bottom: 0px;
+    width: 1em;
+    height: 1em;
+    border:0;
+    // border-radius: 100%;
+    text-align: center;
+    line-height: 1;
+    font-size: 5em;
+    align-items:flex-end;
+    justify-content: center;
+    font-weight: bold;
+    color: $c3;
+    background: $c4;
+    cursor: pointer;
+    transition: .6s ease all;
+  }
+  /* Textinput */
+  .textInput {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 5em;
+    line-height: 80px;
+    padding: 0 20px;
+    border: none;
+    outline: none;
+    background: $c5;
+    font-size: 16px;
+    color: #f1f1f1;
+  }
+
+  .textInput::placeholder {
+    color: $c3;
+  }
