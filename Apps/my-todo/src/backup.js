@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Note from './Component/Note';
+import Note from './Note';
 import './App.css';
 
 
@@ -50,12 +50,15 @@ class App extends Component {
       })
 
 
+      
+
       return (
         <div className="container">
           <div className="header">My Todo List</div>
           {notes}
 
           <div className="btn" onClick={this.addNote.bind(this)}>+</div>
+          
           <input type="text"
             ref={((input) => {this.textInput = input})}
             className = "textInput"

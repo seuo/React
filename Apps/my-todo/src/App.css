@@ -36,6 +36,16 @@ body {
 
 /* The note */
 .note {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   color: #0d6872;
   font-size: 1.2em;
   padding: 1em;
@@ -52,9 +62,34 @@ body {
   transition: transform .2s ease, -webkit-transform .2s ease;
 }
 
+.note .noteClose {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #f26d85;
+  position: absolute;
+  right: 0;
+  padding: 1.15em;
+  border-radius: 0em .5em .5em 0em;
+  margin-top: -1em;
+  display: none;
+}
+
+.note .noteClose .closeBtn {
+  font-size: .8em;
+  color: #bf204a;
+}
+
 .note:hover {
   -webkit-transform: scale(1.02);
           transform: scale(1.02);
+}
+
+.note:hover .noteClose {
+  display: initial;
 }
 
 /* The add note button */
