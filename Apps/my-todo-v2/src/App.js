@@ -15,7 +15,7 @@ class App extends Component {
   }
 
 deleteTodo = (id) => {
-  const todos = this.state.todos.filter(todo => {
+  const todos = this.state.todos.filter(todo => {  // const keeps todos within deleteTodo function
     return todo.id !== id
   });
   this.setState({
@@ -25,7 +25,7 @@ deleteTodo = (id) => {
 
 addTodo = (todo) => {
   todo.id = Math.random();
-  let todos = [...this.state.todos, todo];
+  let todos = [...this.state.todos, todo]; // let todos so can be passed on to Todos.js
   this.setState({
     todos
   })
@@ -40,7 +40,8 @@ render(){
       <Todos todos={this.state.todos} deleteTodo={this.deleteTodo}/>
       <AddTodo addTodo={this.addTodo} /> 
     </div> 
-    // AddTodo addTodo={this.addTodo} passes addTodo to AddTodo
+    // Todos todos={this.state.todos} deleteTodo={this.deleteTodo} passes todos & deleteTodo on to Todos.js
+    // AddTodo addTodo={this.addTodo} passes addTodo to AddTodo.js
   );
 }
 }
