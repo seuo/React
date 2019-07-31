@@ -1,34 +1,45 @@
 import React, { Component } from 'react'
 
+
 class AddTodo extends Component {
     constructor(props){
         super(props);
           this.state = {
-            content: ''
+            content: '',
+            date:''
           };
     
     }
 
-    handleChange = (e) => {
+    handleTodoInputChange = (e) => {
         this.setState({
             content:e.target.value
         })
     }
 
+    handleDateChange = (e) => {
+        this.setState({
+            date:e.target.value
+        })
+    }
+
     handleAdd = (e) => {
-        e.preventDefault();
-        this.props.addTodo(this.state);
+        e.preventDefault(); // prevent event from running until on submit
+        this.props.handleAddTodoClick(this.state);
         this.setState({
             content:''
         })
     }
+
+    
 
     render(){
         return (
             <div >
                 <form onSubmit={this.handleAdd}>
                     <input type="submit" className="btn" value="+"/>
-                    <input type="text" placeholder="Add a new Todo" className="textInput" onChange={this.handleChange} value={this.state.content}/>
+                    <input type="text" placeholder="Add a new Todo" className="textInput" onChange={this.handleTodoInputChange} value={this.state.content}/>
+                    <input type="date" placeholder="Due Date"  className="dateInput" onChange={this.handleDateChange} value={this.state.date}/>
                 </form>
             </div>
         )

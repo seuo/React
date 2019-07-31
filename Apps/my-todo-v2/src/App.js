@@ -14,20 +14,20 @@ class App extends Component {
     }
   }
 
-deleteTodo = (id) => {
-  const todos = this.state.todos.filter(todo => {  // const keeps todos within deleteTodo function
-    return todo.id !== id
+removeTodo = (id) => {
+  const todos = this.state.todos.filter(todo => {  // const keeps todos within removeTodo function
+    return todo.id !== id // keeps id's not equal to id being removed
   });
   this.setState({
-    todos
+    todos // updates todos array
   })
 }
 
-addTodo = (todo) => {
+handleAddTodoClick = (todo) => {
   todo.id = Math.random();
   let todos = [...this.state.todos, todo]; // let todos so can be passed on to Todos.js
   this.setState({
-    todos
+    todos // updates todo list with newly added todo
   })
 
 }
@@ -37,11 +37,11 @@ render(){
   return (
     <div className="todo-app container">
       <h1 className="header">My Todo's</h1>
-      <Todos todos={this.state.todos} deleteTodo={this.deleteTodo}/>
-      <AddTodo addTodo={this.addTodo} /> 
+      <Todos todos={this.state.todos} removeTodo={this.removeTodo}/>
+      <AddTodo handleAddTodoClick={this.handleAddTodoClick} />
     </div> 
-    // Todos todos={this.state.todos} deleteTodo={this.deleteTodo} passes todos & deleteTodo on to Todos.js
-    // AddTodo addTodo={this.addTodo} passes addTodo to AddTodo.js
+    // Todos todos={this.state.todos} removeTodo={this.removeTodo} passes todos & removeTodo on to Todos.js
+    // handleAddTodoClick handleAddTodoClick={this.handleAddTodoClick} passes handleAddTodoClick to handleAddTodoClick.js
   );
 }
 }
