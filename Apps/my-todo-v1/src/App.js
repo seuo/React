@@ -10,12 +10,6 @@ class App extends Component {
     super(props);
     this.state = { //props
       todos:[
-        {
-          id:1,
-          content:'hi',
-          date:'01/12/2019'
-        
-        },
       ],
 
       todoInputValue:'',
@@ -26,16 +20,17 @@ class App extends Component {
 removeTodo = (id) => {
   const todos = this.state.todos.filter(todo => {  // const keeps todos within removeTodo function
     return todo.id !== id // keeps id's not equal to id being removed
-  });
+    
+  })
   this.setState({
     todos // updates todos array
+    
   })
 }
 
 handleAddFormSubmit = (e) => {
   e.preventDefault();
   var newTodo = {
-
     id : Math.random(),
     content: this.state.todoInputValue,
     date: this.state.dateInput
@@ -71,8 +66,8 @@ render(){
       {
         this.state.todos.map(todo => {
             return (
-                <div className="todoItem" key={todo.id}>
-                    <div className="noteClose"><div className="closeBtn">REMOVE</div></div>
+                <div className="todoItem" key={todo.id}>                 
+                    <div className="noteClose"><div className="closeBtn" onClick={() => {this.removeTodo(todo.id)}}>REMOVE</div></div>
                     <div className="content"><div className="todoContent">{todo.content}</div><div className="dueDate">{todo.date}</div></div>
                 </div>
             )

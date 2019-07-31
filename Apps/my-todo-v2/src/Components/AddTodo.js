@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 
-
 class AddTodo extends Component {
     constructor(props){
         super(props);
@@ -23,6 +22,10 @@ class AddTodo extends Component {
         })
     }
 
+    onChange = date => this.setState({ date })
+
+
+
     handleAdd = (e) => {
         e.preventDefault(); // prevent event from running until on submit
         this.props.handleAddTodoClick(this.state);
@@ -30,8 +33,6 @@ class AddTodo extends Component {
             content:''
         })
     }
-
-    
 
     render(){
         return (
@@ -41,6 +42,7 @@ class AddTodo extends Component {
                     <input type="text" placeholder="Add a new Todo" className="textInput" onChange={this.handleTodoInputChange} value={this.state.content}/>
                     <input type="date" placeholder="Due Date"  className="dateInput" onChange={this.handleDateChange} value={this.state.date}/>
                 </form>
+
             </div>
         )
     }

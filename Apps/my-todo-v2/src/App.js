@@ -3,7 +3,6 @@ import Todos from './Components/Todos'
 import AddTodo from './Components/AddTodo'
 import './App.css';
 
-
 class App extends Component {
 
   constructor(props) {
@@ -24,7 +23,7 @@ removeTodo = (id) => {
 }
 
 handleAddTodoClick = (todo) => {
-  todo.id = Math.random();
+  todo.id = Math.random(); // create random id on add
   let todos = [...this.state.todos, todo]; // let todos so can be passed on to Todos.js
   this.setState({
     todos // updates todo list with newly added todo
