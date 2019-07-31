@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import DueDate from './DueDate';
+
 
 class AddTodo extends Component {
     constructor(props){
@@ -7,7 +9,6 @@ class AddTodo extends Component {
             content: '',
             date:''
           };
-    
     }
 
     handleTodoInputChange = (e) => {
@@ -22,10 +23,6 @@ class AddTodo extends Component {
         })
     }
 
-    onChange = date => this.setState({ date })
-
-
-
     handleAdd = (e) => {
         e.preventDefault(); // prevent event from running until on submit
         this.props.handleAddTodoClick(this.state);
@@ -33,6 +30,7 @@ class AddTodo extends Component {
             content:''
         })
     }
+
 
     render(){
         return (

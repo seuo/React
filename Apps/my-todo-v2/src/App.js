@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Todos from './Components/Todos'
 import AddTodo from './Components/AddTodo'
 import './App.css';
+import "react-datepicker/dist/react-datepicker.css";
+
 
 class App extends Component {
 
