@@ -1,0 +1,23 @@
+.wrap {
+    height:100vh;
+    width:100vw;
+    .container {
+        margin:2em;
+        display:flex;
+        justify-content: space-between;
+
+    }
+}
+
+.ideaBody {
+    width:10em; 
+    height:10em;
+}
+
+// .ideasContainer {
+//     background-color:#cdcdcd;
+//     width:4em;
+//     height: 4em;
+//     border-radius:10em;
+// }
+

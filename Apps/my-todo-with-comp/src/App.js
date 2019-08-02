@@ -37,9 +37,18 @@ class  App extends Component {
     this.setState({ // updating list with newlist with the new todo
       todos: newList
     });
+
   }
   
-  removeTodo = (id) =>{}
+  removeTodo = (id) =>{
+    var todos = this.state.todos;
+    var filtered = todos.filter((todo) => {
+      return todo.id !== id
+    });
+    this.setState({ // updating list with newlist with the new todo
+      todos: filtered
+    });
+  }
 
   updateTodo = (id,data) =>{}
 
@@ -53,7 +62,8 @@ class  App extends Component {
                 
                 var todoProps = {
                   ...todo,
-                  key: todo.id
+                  key: todo.id,
+                  removeTodo: this.removeTodo
                 };
 
                 return (

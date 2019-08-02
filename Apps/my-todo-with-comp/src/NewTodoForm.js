@@ -22,7 +22,7 @@ class NewTodoForm extends Component{
 		e.preventDefault();
 		var data = {
 			content: this.state.contentInput,
-			priority:this.state.priority
+			priority:this.state.priorityInput
 		};
 		
 		this.props.addTodo(data); // pull function from App.js 
