@@ -8,24 +8,27 @@ class NewTodoForm extends Component{
 			priorityInput:'',
 		}
 	}
-	handleContentInputChange = (e) => {
+
+	// handles are used on elements
+
+	handleContentInputChange = (e) => { // function updates content for contentInput for NewTodoForm state
 		this.setState({
 			contentInput:e.target.value
 		});
 	}
-	handlePriorityInputChange = (e) => {
+	handlePriorityInputChange = (e) => {  // function updates content for priorityInput for NewTodoForm state
 		this.setState({
 			priorityInput:e.target.value
 		});
 	}
-	handleTodoAddClick = (e) => {
+	handleTodoAddClick = (e) => { // function pulls in content from NewTodoForm state
 		e.preventDefault();
 		var data = {
 			content: this.state.contentInput,
 			priority:this.state.priorityInput
 		};
 		
-		this.props.addTodo(data); // pull function from App.js 
+		this.props.addTodo(data); // pull addTodo function from App.js 
 	}
 	render(){
 		return (

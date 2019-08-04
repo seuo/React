@@ -8,27 +8,11 @@ class  App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      todos:[
-        {
-          id:1,
-          content: 'Ring Peter',
-          priority: 'Important'
-        },
-        {
-          id:2,
-          content: 'Water plants',
-          priority: 'Urgent'
-        },
-        {
-          id:3,
-          content: 'Get milk',
-          priority: 'Can wait'
-        }
-      ]
+      todos:[]
     };
   }
 
-  addTodo = (data) =>{  // creating unique id for new todo
+  addTodo = (data) =>{  // creating unique id for new todo & store data
     var newTodo = { 
       id:Date.now(),
       ...data // encapsulating data within new todo
@@ -58,16 +42,16 @@ class  App extends Component {
         <div className="container">
           <div className="todos">
             {
-              this.state.todos.map((todo) => {
+              this.state.todos.map((todo) => { // map array to for data from to Todo component
                 
-                var todoProps = {
-                  ...todo,
-                  key: todo.id,
-                  removeTodo: this.removeTodo
+                var todoProps = { //  var todoProps for the todo component
+                  ...todo, // todo content
+                  key: todo.id, // todo id
+                  removeTodo: this.removeTodo  // removeTodo function
                 };
 
                 return (
-                  <Todo {...todoProps}/>
+                  <Todo {...todoProps}/> // pull data for todoProps array from Todo Component
                 )
               })
             }
