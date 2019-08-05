@@ -1,0 +1,254 @@
+.wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-image: url(Assets/paper_fibers.png);
+  background-repeat: repeat;
+  height: 100vh;
+}
+
+.wrap .container {
+  height: 100vh;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.IdeaForm {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 25em;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.IdeaForm svg {
+  width: 100%;
+  font-size: 6em;
+  color: hotpink;
+}
+
+.IdeaForm h2 {
+  text-align: center;
+  color: hotpink;
+}
+
+.IdeaForm input {
+  margin: 1em;
+  border: 0;
+  border-radius: 0 1em 1em 0em;
+  background-color: #ededed;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  text-align: center;
+  width: 100%;
+}
+
+.IdeaForm button.btn.btn-primary.idea-add {
+  margin-top: 1em;
+  height: 3em;
+  border: 0;
+  background-color: black;
+  color: #cdcdcd;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  cursor: pointer;
+  border-radius: 1em;
+  padding: 1em;
+}
+
+.titleStyle {
+  height: 3em;
+  font-weight: 700;
+  font-size: 1.2em;
+}
+
+.contentStyle {
+  margin: 1em;
+  height: 7em;
+  width: 100%;
+  border: 0;
+  border-radius: 0 1em 1em 0em;
+  background-color: #ededed;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  text-align: center;
+  padding-top: 1.5em;
+}
+
+.subjectHandle.react-draggable {
+  width: 22em;
+  height: 8em;
+  position: absolute;
+  z-index: 99999999;
+}
+
+.subjectHandle.react-draggable svg {
+  font-size: 2em;
+  margin-left: .5em;
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+
+.SubjectStyle {
+  height: 3em;
+  font-weight: 700;
+  font-size: 1.5em;
+  border: 0;
+  border-radius: 1em;
+  background-color: hotpink;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  text-align: center;
+  position: absolute;
+  -webkit-user-select: text;
+     -moz-user-select: text;
+      -ms-user-select: text;
+          user-select: text;
+  -webkit-box-shadow: .7em .7em 4em #33333375;
+          box-shadow: .7em .7em 4em #33333375;
+}
+
+.noteStyle {
+  height: 3em;
+}
+
+.handle {
+  max-width: 60em;
+  width: 20em;
+}
+
+.idea {
+  height: 7.8em;
+  width: 100%;
+  -webkit-box-shadow: .5em 0.5em 3em #3333333b;
+          box-shadow: .5em 0.5em 3em #3333333b;
+  border: solid .5em #bdbdbd;
+  cursor: -webkit-grab;
+  cursor: grab;
+  padding-top: 1em;
+  margin: 3em;
+  position: relative;
+  background: #fff;
+  border-radius: .7em;
+  text-align: center;
+}
+
+.idea div {
+  height: 2em;
+  font-family: arial;
+}
+
+.ideaBubble {
+  position: absolute;
+  left: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100vh;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #333;
+  padding-right: 2em;
+}
+
+.titleContent {
+  font-weight: 700;
+  color: #333;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.ideaContent {
+  color: #333;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.ideaNote {
+  color: hotpink;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  font-style: italic;
+  font-size: .9em;
+}
+
+.removeIdea {
+  background-color: #ffffff40;
+  margin-bottom: 1em;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  color: #333;
+  weight: 500;
+  cursor: pointer;
+  width: 3em;
+  position: absolute;
+  right: 0;
+}
+
+.removeIdea svg {
+  font-size: 1.2em;
+  padding-right: .5em;
+}
+/*# sourceMappingURL=App.css.map */
