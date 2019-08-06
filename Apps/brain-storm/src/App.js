@@ -1,9 +1,8 @@
 import React, {Component} from 'react';
 import Idea from './Components/idea';
 import NewIdea from './Components/newidea';
-import Draggable from 'react-draggable';
-import { FaGripLines } from 'react-icons/fa';
-import LineTo from 'react-lineto';
+import DragScrollProvider from 'drag-scroll-provider'
+
 
 import './App.css';
 
@@ -58,35 +57,19 @@ this.setState({
 });
 
 }
-  
+
+
 
 render(){
   return (
     <div className="wrap">
+                
         <div className="container">
-        <Draggable
-            // axis="x"
-            cancel=".SubjectStyle"
-            handle=".subjectHandle"
-            defaultPosition={{x: 0, y: 0}}
-            position={null}
-            grid={[25, 25]}
-            scale={1}
-            onStart={this.handleStart}
-            onDrag={this.handleDrag}
-            onStop={this.handleStop}>
-              <div className="subjectHandle">
-              <FaGripLines />
-              <form className="subject">
-              {this.props.subject}
-              
-                <input type="text" placeholder="Subject" className="SubjectStyle"/>
-               
-              </form>
-              </div>
-              </Draggable>
-            <div className="ideas">
-            
+        <DragScrollProvider vertical='true'>
+        {({ onMouseDown, ref }) => (
+            <div className="ideas scrollable" ref={ref}
+          onMouseDown={onMouseDown}>
+                 
               {
                 this.state.ideas.map((idea) => {
                   var ideaProps = {
@@ -97,16 +80,18 @@ render(){
                   
                   return (
                      <Idea {...ideaProps}/>
+                     
                   )
 
                 })
               }
 
-            
 
           </div>
-          <LineTo from="idea" to="subjectHandle" borderColor="#000" />
+          )}
+          </DragScrollProvider>
           <NewIdea addIdea={this.addIdea}/>
+          
         </div>
       </div>
     );

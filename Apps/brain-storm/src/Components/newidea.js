@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
-import { FaLightbulb } from 'react-icons/fa';
+import Draggable from 'react-draggable';
+import { FaGripLines,FaAngleRight,FaLightbulb } from 'react-icons/fa';
+
 
 class NewIdea extends Component {
     constructor(props) {
@@ -51,15 +53,40 @@ class NewIdea extends Component {
 render (){
         return (
             <div className="ideaBubble">
+                <div>
+                                <FaLightbulb />
+                    <h2>BrainStorm</h2>
+                    <Draggable
+            // axis="x"
+            cancel=".SubjectStyle"
+            handle=".subjectHandle"
+            defaultPosition={{x: 0, y: 0}}
+            position={null}
+            grid={[25, 25]}
+            scale={1}
+            onStart={this.handleStart}
+            onDrag={this.handleDrag}
+            onStop={this.handleStop}>
+              <div className="subjectHandle">
+              <FaGripLines />
+              <form className="subject">
+              {this.props.subject}
+              
+                <input type="text" placeholder="Subject" className="SubjectStyle"/>
                
-                <form onSubmit={this.handleAddIdeaClick} className="IdeaForm">
-                <FaLightbulb />
-                    <h2>Brainstorm</h2>
+              </form>
+              </div>
+            </Draggable>
+                    </div>
+                       
+                <form onSubmit={this.handleAddIdeaClick} className="IdeaForm" id="ideaSubmit">
+
                     <input type="text"  onChange={this.handleTitleInputChange} placeholder="Idea Title" className="titleStyle"/>
-                    <textarea rows="10" cols="10" wrap="hard"  onChange={this.handleContentInputChange} placeholder="Your Idea" className="contentStyle"/>
+                    <textarea onChange={this.handleContentInputChange} placeholder="Your Idea" className="contentStyle"/>
                     <input type="text"  onChange={this.handleNoteInputChange} placeholder="Notes" className="noteStyle"/>
-                    <button type="submit" className="btn btn-primary idea-add">Add Idea +</button>
+                    
                 </form>
+                <button type="submit" form="ideaSubmit" className="btn btn-primary idea-add">Add Idea <FaAngleRight /></button>
             </div>
         );
     }   

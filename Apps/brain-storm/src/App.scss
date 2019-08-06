@@ -1,8 +1,13 @@
+
+body {
+    font-family: 'Raleway', sans-serif;
+}
+
 .wrap {
     display:flex;
     justify-content: space-around;
     align-items: center;
-    background-image:url(Assets/paper_fibers.png);
+    background-image:url(Assets/tiny_grid.png);
     background-repeat: repeat;
     height:100vh;
     .container {
@@ -12,32 +17,33 @@
         justify-content: center;
         align-items: center;
         flex-direction: row-reverse;
+        overflow: hidden;
     }
 }
 
 
 .ideas {
-    height: 100vh;
+    height:100vh;
     display: flex;
-    flex: 1 0 70%;
+    flex: 1 0 75%;
+    background-image:url(Assets/tiny_grid.png);
+    cursor: grab;
+    overflow: scroll;
   }
+
+.scrollable {
+    width: 500px;
+    overflow: scroll;   
+}
 
 
 .IdeaForm {
     display: flex;
     width: 25em;
     flex-direction: column;
+    font-family: 'Raleway', sans-serif;
 
-    svg {
-        width: 100%;
-        font-size: 6em;
-        color: hotpink;
-    }
 
-    h2 {
-        text-align:center;
-        color:hotpink;
-    }
     input {
         margin:1em;
         border: 0;
@@ -46,6 +52,8 @@
         align-self: center;
         text-align:center;
         width:100%;
+        font-family: 'Raleway', sans-serif;
+        font-weight: 400;
     }
 
     
@@ -59,6 +67,9 @@
         cursor: pointer;
         border-radius: 1em;
         padding:1em;
+        width: 10em;
+        font-family: 'Raleway', sans-serif;
+        font-weight: 400;
     }
 
 }
@@ -79,25 +90,36 @@
     align-self: center;
     text-align:center;
     padding-top: 1.5em;
-
+    font-family: 'Raleway', sans-serif;
+    font-size:1.2em;
+    font-weight:400;
 }
 
 .subjectHandle.react-draggable {
     width: 22em;
-    height: 8em;
+    z-index:9999;
     position: absolute;
-    z-index:99999999;
+    left:2.5em;
+    .subject {
+        height:10em;
+    }
     svg {
         font-size:2em;
         margin-left:.5em;
         cursor:grab;
+        width: 1em;
     }
+}
+
+input.SubjectStyle::placeholder {
+    color: black;
+    
 }
 
 .SubjectStyle {
     height:3em;
     font-weight:700;
-    font-size:1.5em;
+    font-size:1.8em;
     border: 0;
     border-radius: 1em;
     background-color:hotpink;
@@ -105,57 +127,69 @@
     text-align:center;
     position: absolute;
     user-select: text;
-    box-shadow: .7em .7em 4em #33333375;
+    transition:ease all .6s;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 500;
+}
+
+.SubjectStyle:hover {
+    box-shadow: .5em .5em 2em #33333375;
 }
 
 .noteStyle {
     height:3em;
-    
+    font-family: 'Raleway', sans-serif;
+    font-size:1.2em;
+    font-weight:400;
 }
 
 .handle {
     max-width:60em;
-    width:20em;
+    width: 19.5em;
+    position: relative;
+    height: 8.53em;
+}
+
+.handle:hover {
+    z-index: 99999999999;
 }
 
 .idea {
-    height:7.8em;
-    width:100%;
+    min-height: 8.53em;
     padding-top:1em;
-    margin:3em;
     border: solid .1em rgba(51, 51, 51, 0.363);
     cursor: -webkit-grab;
     cursor: grab;
     transition:ease all .7s;
     border-radius: .7em;
     position: relative;
-  background: rgba(255, 255, 255, 0);
     border-radius: .7em;
     text-align: center;
-    div {
+    z-index:99;
+    font-family: 'Raleway', sans-serif;
+    .removeIdea {
+        margin-top:-2.2em;
         height:2em;
-        font-family:arial;
-
     }
 }
 
+.lineTo {
+    z-index:1;
+    transition:1s ease all;
+}
+
 .idea:hover {
-    height:7.8em;
+    min-height: 8.53em;
     width:100%;
     box-shadow: .5em 0.5em 3em #3333333b;
     border: solid .5em hotpink;
     cursor: grab;
     padding-top:1em;
-    margin:3em;
-  position: relative;
-  background: #fff;
+    position: relative;
+    background: #fff;
     border-radius: .7em;
     text-align: center;
-    div {
-        height:2em;
-        font-family:arial;
 
-    }
 }
 
 .ideaBubble {
@@ -163,8 +197,48 @@
     display: flex;
     height: 100vh;
     align-items: center;
+    justify-content: space-around;
     background-color:#333;
     padding-right:2em;
+    z-index: 999;
+    flex-direction: column;
+    flex: 1 0 5%;
+    svg {
+        width: 100%;
+        font-size: 6em;
+        color: hotpink;
+    }
+
+    h2 {
+        text-align:center;
+        color:hotpink;
+    }
+    button.btn.btn-primary.idea-add {
+        margin-top:1em;
+        height: 3em;
+        border: 0;
+        background-color: hotpink;
+        color:black;
+        font-size:1.3em;
+        font-weight:700;
+        align-self: center;
+        cursor: pointer;
+        border-radius: 1em;
+        padding:1em;
+        width: 10em;
+        font-family: 'Raleway', sans-serif;
+        display: flex;
+        align-items:center;
+        justify-content: center;
+        padding-left:1.7em;
+        svg {
+            font-size: 1.3em;
+            color: black;
+            width: 1em;
+            margin-left:.3em;
+        }
+    }
+    
 }
 
 .titleContent {
@@ -174,6 +248,14 @@
     justify-content: center;
     display:flex;
     flex-direction:column;
+    h2 {
+        word-break: break-word;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        line-break: anywhere;
+        padding:.3em;
+        font-family: 'Raleway', sans-serif;
+    }
 }
 
 .ideaContent {
@@ -182,8 +264,18 @@
     justify-content: center;
     display:flex;
     flex-direction:column;
-    word-wrap: break-word;
     overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
+
+    p {
+        word-break: break-word;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        line-break: anywhere;
+        padding:.3em;
+        font-family: 'Raleway', sans-serif;
+    }
 }
 
 .ideaNote {
@@ -194,6 +286,14 @@
     flex-direction:column;
     font-style:italic;
     font-size:.9em;
+        p {
+        word-break: break-word;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        line-break: anywhere;
+        padding:.3em;
+        font-family: 'Raleway', sans-serif;
+    }
 }
 
 .removeIdea {

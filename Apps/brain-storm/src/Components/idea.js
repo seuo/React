@@ -33,7 +33,7 @@ render (){
             handle=".handle"
             defaultPosition={{x: 0, y: 0}}
             position={null}
-            grid={[25, 25]}
+            grid={[52, 52]}
             scale={1}
             onStart={this.handleStart}
             onDrag={this.handleDrag}
@@ -41,18 +41,19 @@ render (){
             <div className="handle" >
                 <div className="idea">
                 <div className="titleContent">
-                    {this.props.title}
+                   <h2> {this.props.title}</h2>
                 </div>
-                <div className="ideaContent" rows="10" cols="10" wrap="hard">
-                    {this.props.content}
+                <div className="ideaContent">
+                    <p>{this.props.content}</p>
                 </div>
                 <div className="ideaNote">
-                    {this.props.notes}
+                    <p>{this.props.notes}</p>
                 </div>
                 <div className="removeIdea" onClick={this.handleIdeaRemoveClick}><FaTrash /></div>
                 </div>
             </div>
           </Draggable>
+
 
         );
     }

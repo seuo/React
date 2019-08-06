@@ -1,3 +1,7 @@
+body {
+  font-family: 'Raleway', sans-serif;
+}
+
 .wrap {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -7,7 +11,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-image: url(Assets/paper_fibers.png);
+  background-image: url(Assets/tiny_grid.png);
   background-repeat: repeat;
   height: 100vh;
 }
@@ -24,13 +28,30 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
           flex-direction: row-reverse;
+  overflow: hidden;
 }
 
 .ideas {
   height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex: 1 0 70%;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 75%;
+          flex: 1 0 75%;
+  background-image: url(Assets/tiny_grid.png);
+  cursor: -webkit-grab;
+  cursor: grab;
+  overflow: scroll;
+}
+
+.scrollable {
+  width: 500px;
+  overflow: scroll;
 }
 
 .IdeaForm {
@@ -42,17 +63,7 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-}
-
-.IdeaForm svg {
-  width: 100%;
-  font-size: 6em;
-  color: hotpink;
-}
-
-.IdeaForm h2 {
-  text-align: center;
-  color: hotpink;
+  font-family: 'Raleway', sans-serif;
 }
 
 .IdeaForm input {
@@ -65,6 +76,8 @@
       align-self: center;
   text-align: center;
   width: 100%;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
 }
 
 .IdeaForm button.btn.btn-primary.idea-add {
@@ -78,6 +91,9 @@
   cursor: pointer;
   border-radius: 1em;
   padding: 1em;
+  width: 10em;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
 }
 
 .titleStyle {
@@ -98,13 +114,20 @@
       align-self: center;
   text-align: center;
   padding-top: 1.5em;
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.2em;
+  font-weight: 400;
 }
 
 .subjectHandle.react-draggable {
   width: 22em;
-  height: 8em;
+  z-index: 9999;
   position: absolute;
-  z-index: 99999999;
+  left: 2.5em;
+}
+
+.subjectHandle.react-draggable .subject {
+  height: 10em;
 }
 
 .subjectHandle.react-draggable svg {
@@ -112,12 +135,29 @@
   margin-left: .5em;
   cursor: -webkit-grab;
   cursor: grab;
+  width: 1em;
+}
+
+input.SubjectStyle::-webkit-input-placeholder {
+  color: black;
+}
+
+input.SubjectStyle:-ms-input-placeholder {
+  color: black;
+}
+
+input.SubjectStyle::-ms-input-placeholder {
+  color: black;
+}
+
+input.SubjectStyle::placeholder {
+  color: black;
 }
 
 .SubjectStyle {
   height: 3em;
   font-weight: 700;
-  font-size: 1.5em;
+  font-size: 1.8em;
   border: 0;
   border-radius: 1em;
   background-color: hotpink;
@@ -130,52 +170,75 @@
      -moz-user-select: text;
       -ms-user-select: text;
           user-select: text;
-  -webkit-box-shadow: .7em .7em 4em #33333375;
-          box-shadow: .7em .7em 4em #33333375;
+  -webkit-transition: ease all .6s;
+  transition: ease all .6s;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 500;
+}
+
+.SubjectStyle:hover {
+  -webkit-box-shadow: .5em .5em 2em #33333375;
+          box-shadow: .5em .5em 2em #33333375;
 }
 
 .noteStyle {
   height: 3em;
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.2em;
+  font-weight: 400;
 }
 
 .handle {
   max-width: 60em;
-  width: 20em;
+  width: 19.5em;
+  position: relative;
+  height: 8.53em;
+}
+
+.handle:hover {
+  z-index: 99999999999;
 }
 
 .idea {
-  height:7.8em;
-  width:100%;
-  padding-top:1em;
-  margin:3em;
-  border: solid .1em rgba(51, 51, 51, 0.363);
+  min-height: 8.53em;
+  padding-top: 1em;
+  border: solid 0.1em rgba(51, 51, 51, 0.363);
   cursor: -webkit-grab;
   cursor: grab;
-  transition:ease all .7s;
+  -webkit-transition: ease all .7s;
+  transition: ease all .7s;
   border-radius: .7em;
   position: relative;
-background: rgba(255, 255, 255, 0);
   border-radius: .7em;
   text-align: center;
+  z-index: 99;
+  font-family: 'Raleway', sans-serif;
+}
+
+.idea .removeIdea {
+  margin-top: -2.2em;
+  height: 2em;
+}
+
+.lineTo {
+  z-index: 1;
+  -webkit-transition: 1s ease all;
+  transition: 1s ease all;
 }
 
 .idea:hover {
-  height:7.8em;
-  width:100%;
-  box-shadow: .5em 0.5em 3em #3333333b;
+  min-height: 8.53em;
+  width: 100%;
+  -webkit-box-shadow: .5em 0.5em 3em #3333333b;
+          box-shadow: .5em 0.5em 3em #3333333b;
   border: solid .5em hotpink;
+  cursor: -webkit-grab;
   cursor: grab;
-  padding-top:1em;
-  margin:3em;
-position: relative;
-background: #fff;
+  padding-top: 1em;
+  position: relative;
+  background: #fff;
   border-radius: .7em;
   text-align: center;
-}
-
-.idea div {
-  height: 2em;
-  font-family: arial;
 }
 
 .ideaBubble {
@@ -187,8 +250,63 @@ background: #fff;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   background-color: #333;
   padding-right: 2em;
+  z-index: 999;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 5%;
+          flex: 1 0 5%;
+}
+
+.ideaBubble svg {
+  width: 100%;
+  font-size: 6em;
+  color: hotpink;
+}
+
+.ideaBubble h2 {
+  text-align: center;
+  color: hotpink;
+}
+
+.ideaBubble button.btn.btn-primary.idea-add {
+  margin-top: 1em;
+  height: 3em;
+  border: 0;
+  background-color: hotpink;
+  color: black;
+  font-size: 1.3em;
+  font-weight: 700;
+  -ms-flex-item-align: center;
+      align-self: center;
+  cursor: pointer;
+  border-radius: 1em;
+  padding: 1em;
+  width: 10em;
+  font-family: 'Raleway', sans-serif;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-left: 1.7em;
+}
+
+.ideaBubble button.btn.btn-primary.idea-add svg {
+  font-size: 1.3em;
+  color: black;
+  width: 1em;
+  margin-left: .3em;
 }
 
 .titleContent {
@@ -207,7 +325,15 @@ background: #fff;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
 
+.titleContent h2 {
+  word-break: break-word;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  line-break: anywhere;
+  padding: .3em;
+  font-family: 'Raleway', sans-serif;
 }
 
 .ideaContent {
@@ -225,11 +351,20 @@ background: #fff;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-   overflow-wrap: break-word;
+  overflow-wrap: break-word;
   word-wrap: break-word;
-  hyphens: auto;
-  padding-left:1em;
-  padding-right:1em;
+  -webkit-hyphens: auto;
+      -ms-hyphens: auto;
+          hyphens: auto;
+}
+
+.ideaContent p {
+  word-break: break-word;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  line-break: anywhere;
+  padding: .3em;
+  font-family: 'Raleway', sans-serif;
 }
 
 .ideaNote {
@@ -251,6 +386,15 @@ background: #fff;
   font-size: .9em;
 }
 
+.ideaNote p {
+  word-break: break-word;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  line-break: anywhere;
+  padding: .3em;
+  font-family: 'Raleway', sans-serif;
+}
+
 .removeIdea {
   background-color: #ffffff40;
   margin-bottom: 1em;
@@ -264,7 +408,7 @@ background: #fff;
       -ms-flex-pack: end;
           justify-content: flex-end;
   color: #333;
-  weight: 500;
+  font-weight: 500;
   cursor: pointer;
   width: 3em;
   position: absolute;
