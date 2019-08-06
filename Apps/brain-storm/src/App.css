@@ -24,6 +24,13 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+          flex-direction: row-reverse;
+}
+
+.ideas {
+  height: 100vh;
+  display: flex;
+  flex: 1 0 70%;
 }
 
 .IdeaForm {
@@ -137,17 +144,31 @@
 }
 
 .idea {
-  height: 7.8em;
-  width: 100%;
-  -webkit-box-shadow: .5em 0.5em 3em #3333333b;
-          box-shadow: .5em 0.5em 3em #3333333b;
-  border: solid .5em #bdbdbd;
+  height:7.8em;
+  width:100%;
+  padding-top:1em;
+  margin:3em;
+  border: solid .1em rgba(51, 51, 51, 0.363);
   cursor: -webkit-grab;
   cursor: grab;
-  padding-top: 1em;
-  margin: 3em;
+  transition:ease all .7s;
+  border-radius: .7em;
   position: relative;
-  background: #fff;
+background: rgba(255, 255, 255, 0);
+  border-radius: .7em;
+  text-align: center;
+}
+
+.idea:hover {
+  height:7.8em;
+  width:100%;
+  box-shadow: .5em 0.5em 3em #3333333b;
+  border: solid .5em hotpink;
+  cursor: grab;
+  padding-top:1em;
+  margin:3em;
+position: relative;
+background: #fff;
   border-radius: .7em;
   text-align: center;
 }
@@ -158,7 +179,6 @@
 }
 
 .ideaBubble {
-  position: absolute;
   left: 0;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -187,6 +207,7 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+
 }
 
 .ideaContent {
@@ -204,8 +225,11 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+   overflow-wrap: break-word;
   word-wrap: break-word;
-  overflow-wrap: break-word;
+  hyphens: auto;
+  padding-left:1em;
+  padding-right:1em;
 }
 
 .ideaNote {

@@ -7,18 +7,18 @@ import { FaTrash } from 'react-icons/fa';
 class Idea extends Component {
     constructor(props) {
         super(props)
-        this.state = [
-            updatingTitle:false,
-            updatingIdea:false,
-            updatingNotes:false
-        ]
+        // this.state = [
+        //     updatingTitle:false,
+        //     updatingIdea:false,
+        //     updatingNotes:false
+        // ]
     }
 
-handleTitleDoubleClick = () => {
-    this.setState ({
-        updatingTitle:true
-    });
-}
+// handleTitleDoubleClick = () => {
+//     this.setState ({
+//         updatingTitle:true
+//     });
+// }
 
 handleIdeaRemoveClick = () => {
     var id = this.props.id;

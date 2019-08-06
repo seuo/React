@@ -3,6 +3,8 @@ import Idea from './Components/idea';
 import NewIdea from './Components/newidea';
 import Draggable from 'react-draggable';
 import { FaGripLines } from 'react-icons/fa';
+import LineTo from 'react-lineto';
+
 import './App.css';
 
 class App extends Component {
@@ -75,7 +77,7 @@ render(){
             onStop={this.handleStop}>
               <div className="subjectHandle">
               <FaGripLines />
-              <form class="subject">
+              <form className="subject">
               {this.props.subject}
               
                 <input type="text" placeholder="Subject" className="SubjectStyle"/>
@@ -103,6 +105,7 @@ render(){
             
 
           </div>
+          <LineTo from="idea" to="subjectHandle" borderColor="#000" />
           <NewIdea addIdea={this.addIdea}/>
         </div>
       </div>
