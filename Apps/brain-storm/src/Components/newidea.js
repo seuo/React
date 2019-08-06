@@ -54,7 +54,7 @@ render (){
                
                 <form onSubmit={this.handleAddIdeaClick} className="IdeaForm">
                 <FaLightbulb />
-                    <h2>What's your "bright" idea?</h2>
+                    <h2>Brainstorm</h2>
                     <input type="text"  onChange={this.handleTitleInputChange} placeholder="Idea Title" className="titleStyle"/>
                     <textarea rows="10" cols="10" wrap="hard"  onChange={this.handleContentInputChange} placeholder="Your Idea" className="contentStyle"/>
                     <input type="text"  onChange={this.handleNoteInputChange} placeholder="Notes" className="noteStyle"/>

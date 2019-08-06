@@ -43,7 +43,20 @@ handleSubjectInputChange = (e) => {
   });
 };
 
-updateIdea = (id,data) =>{}
+updateIdea = (id,data) => {
+  var ideas = this.state.ideas;
+  var index = ideas.findIndex(function(idea) {
+    return idea.id == id;
+});
+
+var updatedIdea = {...ideas[index],...data};
+ideas[index] = updatedIdea;
+this.setState({
+  ideas:ideas
+});
+
+}
+  
 
 render(){
   return (

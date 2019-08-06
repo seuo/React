@@ -34,7 +34,22 @@ class  App extends Component {
     });
   }
 
-  updateTodo = (id,data) =>{}
+  updateTodo = (id,data) => {
+    var todos = this.state.todos;
+    var index = todos.findIndex(function(todo) {
+      return todo.id == id;
+    });
+
+    var updatedTodo = {...todos[index],...data};
+
+      todos[index] = updatedTodo;
+
+      this.setState({
+        todos:todos
+      });
+
+    // console.log(updatedTodo)
+  }
 
   render(){
     return (
@@ -47,7 +62,8 @@ class  App extends Component {
                 var todoProps = { //  var todoProps for the todo component
                   ...todo, // todo content
                   key: todo.id, // todo id
-                  removeTodo: this.removeTodo  // removeTodo function
+                  removeTodo: this.removeTodo, // removeTodo function
+                  updateTodo: this.updateTodo
                 };
 
                 return (

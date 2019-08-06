@@ -21,15 +21,19 @@ class NewTodoForm extends Component{
 			priorityInput:e.target.value
 		});
 	}
+
 	handleTodoAddClick = (e) => { // function pulls in content from NewTodoForm state
 		e.preventDefault();
 		var data = {
-			content: this.state.contentInput,
+			content:this.state.contentInput,
 			priority:this.state.priorityInput
 		};
 		
 		this.props.addTodo(data); // pull addTodo function from App.js 
 	}
+
+
+
 	render(){
 		return (
 			<div className="todo new-todo">
