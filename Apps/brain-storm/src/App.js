@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 import Idea from './Components/idea';
 import NewIdea from './Components/newidea';
+import SketchFieldCanvas from './Components/sketch';
 import DragScrollProvider from 'drag-scroll-provider'
+
 
 
 import './App.css';
@@ -59,37 +61,33 @@ this.setState({
 }
 
 
-
 render(){
   return (
     <div className="wrap">
-                
+                        
         <div className="container">
-        <DragScrollProvider vertical='true'>
-        {({ onMouseDown, ref }) => (
-            <div className="ideas scrollable" ref={ref}
-          onMouseDown={onMouseDown}>
-                 
+        
+            <div className="ideas">
+            
               {
                 this.state.ideas.map((idea) => {
                   var ideaProps = {
                     ...idea,
                   key: idea.id,
-                  removeIdea: this.removeIdea
+                  removeIdea: this.removeIdea,
+                  updateIdea: this.updateIdea
                   };
                   
                   return (
                      <Idea {...ideaProps}/>
-                     
+                    
                   )
 
                 })
               }
-
-
+<SketchFieldCanvas></SketchFieldCanvas>
           </div>
-          )}
-          </DragScrollProvider>
+         
           <NewIdea addIdea={this.addIdea}/>
           
         </div>
@@ -99,4 +97,6 @@ render(){
 }
 
 export default App;
+
+
 

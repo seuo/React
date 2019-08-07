@@ -193,6 +193,7 @@ input.SubjectStyle::placeholder {
   width: 19.5em;
   position: relative;
   height: 8.53em;
+  z-index: 999999;
 }
 
 .handle:hover {
@@ -201,14 +202,14 @@ input.SubjectStyle::placeholder {
 
 .idea {
   min-height: 8.53em;
+  width: 19.5em;
   padding-top: 1em;
-  border: solid 0.1em rgba(51, 51, 51, 0.363);
   cursor: -webkit-grab;
   cursor: grab;
   -webkit-transition: ease all .7s;
   transition: ease all .7s;
   border-radius: .7em;
-  position: relative;
+  position: absolute;
   border-radius: .7em;
   text-align: center;
   z-index: 99;
@@ -218,6 +219,93 @@ input.SubjectStyle::placeholder {
 .idea .removeIdea {
   margin-top: -2.2em;
   height: 2em;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: ease all .7s;
+  transition: ease all .7s;
+}
+
+.idea .ideaInput {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  font-size: 1em;
+  color: white;
+  background-color: #333;
+  border-radius: 3em;
+  padding: 1em;
+  margin: .5em;
+  text-align: center;
+  width: 80%;
+}
+
+.idea .ideaContentText {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  font-size: 1em;
+  color: #333;
+  background-color: transparent;
+  border: thin solid #cdcdcd;
+  border-radius: 0em;
+  padding: .5em;
+  margin: .5em;
+  text-align: center;
+  width: 80%;
+  overflow-wrap: break-word;
+  overflow: auto;
+  min-height: 7em;
+}
+
+.idea .ideaNoteInput {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 500;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  font-size: .9em;
+  color: hotpink;
+  background-color: transparent;
+  border: thin solid #cdcdcd;
+  border-radius: 0em;
+  padding: 1em;
+  margin: .5em;
+  text-align: center;
+  width: 80%;
 }
 
 .lineTo {
@@ -228,17 +316,21 @@ input.SubjectStyle::placeholder {
 
 .idea:hover {
   min-height: 8.53em;
-  width: 100%;
+  width: 19.5em;
   -webkit-box-shadow: .5em 0.5em 3em #3333333b;
           box-shadow: .5em 0.5em 3em #3333333b;
-  border: solid .5em hotpink;
   cursor: -webkit-grab;
   cursor: grab;
   padding-top: 1em;
-  position: relative;
+  position: absolute;
   background: #fff;
   border-radius: .7em;
   text-align: center;
+}
+
+.idea:hover .removeIdea {
+  visibility: initial;
+  opacity: 1;
 }
 
 .ideaBubble {
@@ -333,6 +425,7 @@ input.SubjectStyle::placeholder {
   overflow-wrap: break-word;
   line-break: anywhere;
   padding: .3em;
+  margin: 0;
   font-family: 'Raleway', sans-serif;
 }
 
@@ -363,8 +456,9 @@ input.SubjectStyle::placeholder {
   word-wrap: break-word;
   overflow-wrap: break-word;
   line-break: anywhere;
-  padding: .3em;
+  padding: .5em;
   font-family: 'Raleway', sans-serif;
+  margin: 0;
 }
 
 .ideaNote {
@@ -391,7 +485,7 @@ input.SubjectStyle::placeholder {
   word-wrap: break-word;
   overflow-wrap: break-word;
   line-break: anywhere;
-  padding: .3em;
+  padding: .5em;
   font-family: 'Raleway', sans-serif;
 }
 
@@ -418,5 +512,77 @@ input.SubjectStyle::placeholder {
 .removeIdea svg {
   font-size: 1.2em;
   padding-right: .5em;
+}
+
+@media only screen and (max-width: 600px) {
+  .wrap .container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+  }
+  .wrap .container .ideaBubble {
+    width: 100%;
+    padding: 1em 0;
+  }
+  .wrap .container .ideaBubble h2 {
+    text-align: center;
+    position: absolute;
+    color: hotpink;
+    bottom: -.7em;
+    left: .4em;
+    font-size: 1.1em;
+    opacity: .7;
+  }
+  .wrap .container .handle {
+    width: 6.5em;
+    left: 3.3em;
+  }
+  .wrap .container .subjectHandle.react-draggable {
+    width: 11em;
+    height: 5em;
+    z-index: 9999;
+    position: absolute;
+    top: 60%;
+    left: 1em;
+  }
+  .wrap .container .subjectHandle.react-draggable .SubjectStyle {
+    height: 2em;
+    font-weight: 500;
+    font-size: 1em;
+  }
+  .idea {
+    font-size: .6em;
+    width: 9em;
+  }
+  .IdeaForm {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    margin-top: 1em;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    font-family: 'Raleway', sans-serif;
+  }
+  .IdeaForm input {
+    border-radius: 0em;
+    height: 2em;
+    margin: .2em;
+  }
+  .contentStyle {
+    border-radius: 0em;
+    height: 5em;
+    margin: .2em;
+    padding: 0em;
+    padding-top: .5em;
+  }
+  .ideaBubble button.btn.btn-primary.idea-add {
+    font-size: 1em;
+    padding-top: 1em;
+    padding-left: 2em;
+  }
 }
 /*# sourceMappingURL=App.css.map */
