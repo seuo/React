@@ -24,11 +24,11 @@ class NewTodoForm extends Component{
 
 	handleTodoAddClick = (e) => { // function pulls in content from NewTodoForm state
 		e.preventDefault();
-		var data = {
+		var data = { // encapsulates states into data for the App
 			content:this.state.contentInput,
 			priority:this.state.priorityInput
 		};
-		
+		// loads data up to addTodo on App.js ready for use
 		this.props.addTodo(data); // pull addTodo function from App.js 
 	}
 

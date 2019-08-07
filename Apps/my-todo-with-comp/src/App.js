@@ -27,7 +27,7 @@ class  App extends Component {
   removeTodo = (id) =>{
     var todos = this.state.todos;
     var filtered = todos.filter((todo) => {
-      return todo.id !== id
+      return todo.id !== id // cycles through array and cheks if ids dont match to leave them be
     });
     this.setState({ // updating list with newlist with the new todo
       todos: filtered
@@ -36,16 +36,16 @@ class  App extends Component {
 
   updateTodo = (id,data) => {
     var todos = this.state.todos;
-    var index = todos.findIndex(function(todo) {
+    var index = todos.findIndex(function(todo) { // findIndex cycles through array to find the id matching
       return todo.id === id;
     });
 
-    var updatedTodo = {...todos[index],...data};
+    var updatedTodo = {...todos[index],...data}; // loads new data for selected todo that matched id
 
-      todos[index] = updatedTodo;
+      todos[index] = updatedTodo; // loads new data for selected todo into function 
 
       this.setState({
-        todos:todos
+        todos:todos // updates state
       });
 
     // console.log(updatedTodo)
