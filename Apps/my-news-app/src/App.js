@@ -15,6 +15,7 @@ class App extends Component {
     this.state={
       activeKey:'sports',
       searchTerm:'',
+      searchResults:[],
       searchArticles:[],
       sportsArticles:[],
       businessArticles:[],
@@ -80,19 +81,6 @@ loadHeadlinesByTerm = (term) => {
   }
 
 
-  HandleSearchNews = (term) => {
-    let searchList = this.state.searchArticles;
-    let filtered = searchList.filter((searchList)=>{
-        return searchList.term !== this.state.searchTerm;
-    });
-    this.setState({
-      searchList: filtered
-    });
-    console.log(filtered)
-    }
-
-
-
   handleSearchSubmitClick = (e) => {
     e.preventDefault();
     this.setState({activeKey:'search'})
@@ -111,7 +99,7 @@ loadHeadlinesByTerm = (term) => {
   
 
   render(){
-    
+
       return (
         <div className="container">
           <Tab.Container activeKey={this.state.activeKey} onSelect={this.handleTabSelect}>

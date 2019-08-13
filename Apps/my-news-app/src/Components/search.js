@@ -8,21 +8,7 @@ class Search extends Component {
         }
     }
 
-
-
-
     render () {
-
-              
-    //   let searchTerm = this.props.searchTerm;
-    //   let searchList = this.props.searchArticles;
-      
-    //   let filtered = searchList.filter((searchList)=>{
-    //       return searchList.title !== searchTerm;
-    //   });
-    //   this.setState({
-    //     searchArticles: filtered
-    //   });
         
         return(
             <div className="search">
