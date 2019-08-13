@@ -60,10 +60,9 @@ loadHeadlinesByTerm = (term) => {
 		.then( res=>res.json())
 		.then((data)=>{
       let articles = data.articles;
+      
+      this.setState({searchArticles:articles})
 
-      if(term=='search'){
-        this.setState({searchArticles:articles})
-      }
 		})
 }
 
@@ -77,14 +76,16 @@ loadHeadlinesByTerm = (term) => {
     this.loadHeadlinesByCategory('general');
     this.loadHeadlinesByCategory('science');
     this.loadHeadlinesByCategory('technology');
-    this.loadHeadlinesByTerm('search');
   }
 
 
   handleSearchSubmitClick = (e) => {
     e.preventDefault();
     this.setState({activeKey:'search'})
-    console.log(this.state.searchTerm)
+
+    let searchTerm = this.state.searchTerm;
+    this.loadHeadlinesByTerm(searchTerm);
+    // console.log(searchTerm);
   }
 
   handleSearchInputChange = (e) => {
@@ -92,7 +93,6 @@ loadHeadlinesByTerm = (term) => {
     this.setState({
 			searchTerm:e.target.value
     });
-    
   }
 
 
