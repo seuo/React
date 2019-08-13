@@ -13,3 +13,10 @@
   margin-top: 1em;
   padding:1em;
 }
+.badge {
+  display:flex;
+  justify-content: space-between;
+}
+.badge img {
+  width:50em;
+}

@@ -15,7 +15,6 @@ class App extends Component {
     this.state={
       activeKey:'sports',
       searchTerm:'',
-      searchResults:[],
       searchArticles:[],
       sportsArticles:[],
       businessArticles:[],

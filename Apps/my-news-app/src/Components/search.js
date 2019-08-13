@@ -13,6 +13,7 @@ class Search extends Component {
         return(
             <div className="search">
                 <p>{this.props.title}</p>
+                <p><span className="badge badge-primary">  {this.props.source.name} <a href={this.props.url}><img src={this.props.urlToImage} alt=""/></a></span></p>
             </div>
         )
     }
