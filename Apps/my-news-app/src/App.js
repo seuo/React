@@ -59,16 +59,9 @@ loadHeadlinesByTerm = (term) => {
 		.then( res=>res.json())
 		.then((data)=>{
       let articles = data.articles;
-      let searchTerm = this.state.searchTerm;
-      let filtered = articles.filter((articles)=>{
-          return articles.description !== searchTerm;
-      });
-      this.setState({
-        searchArticles: filtered
-      });
 
       if(term=='search'){
-        this.setState({searchArticles:filtered})
+        this.setState({searchArticles:articles})
       }
 		})
 }
