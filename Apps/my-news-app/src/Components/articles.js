@@ -8,9 +8,6 @@ class Article extends Component {
         }
     }
 
-    handleArticleTabClick = () => {
-        
-    }
 
     render() {
         return(

@@ -3,7 +3,7 @@ import Tab from 'react-bootstrap/Tab';
 import Nav from 'react-bootstrap/Nav';
 import Form from 'react-bootstrap/Form';
 import Article from './Components/articles';
-import Search from '/Components/search'
+import Search from './Components/search';
 import './App.css';
 
 var keyCode = '0ac87d5dcb66413e9b9ebfa55ae5fc8a';
@@ -14,6 +14,8 @@ class App extends Component {
     super(props);
     this.state={
       activeKey:'sports',
+      searchTerm:'',
+      searchArticles:[],
       sportsArticles:[],
       businessArticles:[],
       scienceArticles:[],
@@ -50,13 +52,24 @@ loadHeadlinesByCategory = (category) => {
 		})
 }
 
+
 loadHeadlinesByTerm = (term) => {
 	var articlesURL = 'https://newsapi.org/v2/top-headlines'+key+'&q='+term;
 	fetch(articlesURL)
 		.then( res=>res.json())
 		.then((data)=>{
-			var articles = data.articles;
-			console.log(articles);
+      let articles = data.articles;
+      let searchTerm = this.state.searchTerm;
+      let filtered = articles.filter((articles)=>{
+          return articles.description !== searchTerm;
+      });
+      this.setState({
+        searchArticles: filtered
+      });
+
+      if(term=='search'){
+        this.setState({searchArticles:filtered})
+      }
 		})
 }
 
@@ -70,24 +83,42 @@ loadHeadlinesByTerm = (term) => {
     this.loadHeadlinesByCategory('general');
     this.loadHeadlinesByCategory('science');
     this.loadHeadlinesByCategory('technology');
+    this.loadHeadlinesByTerm('search');
   }
 
 
-  handleTabSelect = (key, e) => {
-    this.setState({activeKey:key})
-    
-    
-  }
+  HandleSearchNews = (term) => {
+    let searchList = this.state.searchArticles;
+    let filtered = searchList.filter((searchList)=>{
+        return searchList.term !== this.state.searchTerm;
+    });
+    this.setState({
+      searchList: filtered
+    });
+    console.log(filtered)
+    }
+
+
 
   handleSearchSubmitClick = (e) => {
     e.preventDefault();
     this.setState({activeKey:'search'})
+    console.log(this.state.searchTerm)
+  }
+
+  handleSearchInputChange = (e) => {
+    e.preventDefault();
+    this.setState({
+			searchTerm:e.target.value
+    });
+    
   }
 
 
   
 
   render(){
+    
       return (
         <div className="container">
           <Tab.Container activeKey={this.state.activeKey} onSelect={this.handleTabSelect}>
@@ -112,10 +143,10 @@ loadHeadlinesByTerm = (term) => {
                 </Nav.Item>
               </Nav>
 
-              <form className="col-5">
+              <form className="col-5" id="searchForm" >
                 <div className="form-row align-items-center justify-content-end">
                   <div className="col-auto">
-                    <input type="text" value={} className="form-control mb-2 search-input" placeholder="Enter keywords"/>
+                    <input type="text" onBlur={this.handleSearchInputChange} className="form-control mb-2 search-input" placeholder="Enter keywords"/>
                   </div>
                   
                   <div className="col-auto">
@@ -220,10 +251,15 @@ loadHeadlinesByTerm = (term) => {
               <Tab.Pane className="tab-pane" eventKey="search">
                 <h1>Search Results</h1>
 
-                <div className="article">
-                  <h5>Apple is giving out a special iPhone that can lead to a $1 million reward</h5>
-                  <p><span className="badge badge-primary">Phonearena.com</span></p>
-                </div>
+              {
+                this.state.searchArticles.map((article)=>{
+                  var articleProps = {
+                    ...article,
+                    key:Math.random()
+                  }
+                  return <Search {...articleProps}/>
+                })
+              }
                 
               </Tab.Pane>
 
