@@ -4,7 +4,7 @@ import View from './Components/view'
 import Project from './Components/project';
 import './App.css';
 
-var urlPrefix = 'http://localhost:3002/'
+var urlPrefix = 'http://10.2.24.39:4000/api'
 
 class App extends Component {
 	constructor(props) {
@@ -35,8 +35,9 @@ class App extends Component {
 	getProjects = () => {
 		axios.get(urlPrefix+'/projects')
 		.then(res => {
-		 this.setState({projects:res.data});
-	});
+			console.log(res);
+		 	this.setState({projects:res.data});
+		});
 	}
 
 	addProjects = (data) => {
@@ -51,9 +52,9 @@ class App extends Component {
 
 	}
 
-	// componentDidMount(){
-	// 	this.getProjects();
-	// }
+	componentDidMount(){
+		this.getProjects();
+	}
 
 render () {
 	
