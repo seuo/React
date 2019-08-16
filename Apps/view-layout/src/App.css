@@ -69,6 +69,10 @@ body{
   margin-right:1em;
 }
 
+.fa-window-close {
+	font-size:1.2em;
+}
+
 /* Color Theme Swatches in RGBA */
 .color0{ background-color: rgba(200, 200, 200, 1); }
 .color1{ background-color: rgba(201, 255, 245, 1); }

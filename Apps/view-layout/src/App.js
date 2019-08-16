@@ -1,12 +1,27 @@
 import React, {Component} from 'react';
+import axios from 'axios';
 import View from './Components/view'
+import Project from './Components/project';
 import './App.css';
+
+var urlPrefix = 'http://localhost:3002/'
 
 class App extends Component {
 	constructor(props) {
 		super(props);
 			this.state = {
-				activeView:'nav'
+				activeView:'nav',
+				projects:[{
+					id:1,
+					name:'Build an App',
+					description:'my first live app'
+				},
+				{
+					id:2,
+					name:'Update Data',
+					description:'Update remove data on database'
+				}
+				]
 			};
 	}
 
@@ -16,59 +31,76 @@ class App extends Component {
 		})
 	};
 
+
+	getProjects = () => {
+		axios.get(urlPrefix+'/projects')
+		.then(res => {
+		console.log(res);
+	});
+	}
+
+	addProjects = (data) => {
+
+	}
+
+	deleteProjects = (id) => {
+
+	}
+
+	updateProject = (id,data) => {
+
+	}
+
 render () {
 	
 	return (
 			<div className="app">
 				
 				<View viewName="projects" activeView={this.state.activeView} className="color1">
-				<div className="header"><i onClick={() => this.setActiveView('nav')} className="fas fa-bars"></i></div>
+				<div className="header"><i onClick={() => this.setActiveView('nav')} className="fas fa-window-close"></i></div>
 					<div className="main">
 						<h3>Projects</h3>
-							<div class="card project">
-							<img class="card-img-top" src="project.jpg" alt="Card image cap" />
-							<div class="card-body">
-								<h5 class="card-title">Card title</h5>
-								<p class="card-text">Some quick example text to build on the card title</p>
-								<p>
-									<i class="fas fa-heart"></i>
-									<i class="fas fa-edit"></i>
-									<i class="fas fa-trash"></i>
-								</p>
-							
-							</div>
-							</div>
+						{
+							this.state.projects.map((project) => {
+								var projectProps = {
+									...project,
+									key: project.id
+								};
+								return (<Project {...projectProps} />);
+							})
+						}
+
 					</div>
 				</View>
 				<View viewName="add-project" activeView={this.state.activeView} className="color2">
-					<div className="header"><i onClick={() => this.setActiveView('nav')} className="fas fa-bars"></i></div>
+					<div className="header"><i onClick={() => this.setActiveView('nav')} className="fas fa-window-close"></i></div>
 					<div className="main">
 							<h3>Add a project</h3>
 						<form>
-						<div class="form-group">
+						<div className="form-group">
 							<label for="name-input">Name</label>
-							<input type="text" class="form-control" name="name-input" id="name-input" placeholder="Enter project name"/>
+							<input type="text" className="form-control" name="name-input" id="name-input" placeholder="Enter project name"/>
 						</div>
-						<div class="form-group">
+						<div className="form-group">
 							<label for="name-input">Description</label>
-							<input type="text" class="form-control" name="description-input" id="description-input" placeholder="Enter project description"/>
+							<input type="text" className="form-control" name="description-input" id="description-input" placeholder="Enter project description"/>
 						</div>
 
-						<div class="form-group">
+						<div className="form-group">
 							<label for="name-input">Photo</label>
-							<input type="text" class="form-control" name="photo-input" id="photo-input" value="project.jpg"/>
+							<input type="text" className="form-control" name="photo-input" id="photo-input" value="project.jpg"/>
 						</div>
 
-						<div class="form-group">
+						<div className="form-group">
 							<label for="type-input">Type</label>
-							<select class="form-control" name="type-input" id="type-input">
+							<select className="form-control" name="type-input" id="type-input">
 							<option value="1">Painting</option>
 							<option value="2">Sculpture</option>
 							<option value="3">Digital</option>
 							</select>
 						</div>
 
-						<button type="submit" class="btn btn-primary">Add</button>
+						<button type="submit" className="btn btn-primary">Add</button>
 						</form>
 					</div>
 				</View>
