@@ -35,7 +35,7 @@ class App extends Component {
 	getProjects = () => {
 		axios.get(urlPrefix+'/projects')
 		.then(res => {
-		console.log(res);
+		 this.setState({projects:res.data});
 	});
 	}
 
@@ -50,6 +50,10 @@ class App extends Component {
 	updateProject = (id,data) => {
 
 	}
+
+	// componentDidMount(){
+	// 	this.getProjects();
+	// }
 
 render () {
 	
