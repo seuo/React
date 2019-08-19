@@ -9,6 +9,17 @@ constructor(props) {
         };
 }
 
+handleTrashClick = () => {
+    var {deleteProjects,id} = this.props;
+    deleteProjects(id);
+}
+
+handleEditClick = () => {
+    var {setActiveView, setProjectToUpdate, id} = this.props;
+    setActiveView('edit-project')
+    setProjectToUpdate(id)
+}
+
     render() {
 
         var {name,description} = this.props;
@@ -24,8 +35,8 @@ constructor(props) {
                         <p className="card-text">{description}</p>
                         <p>
                             <i className="fas fa-heart"></i>
-                            <i className="fas fa-edit"></i>
-                            <i className="fas fa-trash"></i>
+                            <i onClick={this.handleEditClick} className="fas fa-edit"></i>
+                            <i onClick={this.handleTrashClick} className="fas fa-trash"></i>
                         </p>
                     
                     </div>
