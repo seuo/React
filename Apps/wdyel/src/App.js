@@ -5,6 +5,7 @@ import Project from './Components/project';
 import AddProject from './Components/addProjectForm';
 import EditProject from './Components/editProjectForm';
 import './App.css';
+/* <link href="https://fonts.googleapis.com/css?family=Pangolin&display=swap" rel="stylesheet"></link> */
 
 var urlPrefix = 'http://10.2.24.38:4000/api'
 
@@ -83,9 +84,9 @@ render () {
 			<div className="app">
 				
 				<View viewName="projects" activeView={this.state.activeView} className="color1">
-				<div className="header"><i onClick={() => this.setActiveView('add-project')} className="fas fa-plus"></i><i onClick={() => this.setActiveView('nav')} className="fas fa-window-close"></i></div>
+				<div className="header "><h2>Rate your Ice Cream</h2><i onClick={() => this.setActiveView('add-project')} className="fas fa-plus"></i><i onClick={() => this.setActiveView('nav')} className="fas fa-window-close"></i></div>
 					<div className="main">
-						<h3>Projects</h3>
+						
 						{
 							this.state.projects.map((project) => {
 								var projectProps = {

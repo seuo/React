@@ -42,6 +42,12 @@ i {
 .header{
 	text-align: right;
 	padding:1em;
+	background-color: #333;
+	color:white;
+	transition: ease-in;
+	text-align: center;
+	display:flex;
+	justify-content: space-between;
 }
 
 .main{
@@ -67,6 +73,7 @@ i {
 /*projects*/
 .project{
 	margin-bottom: 1em;
+	background-color: rgba(216, 186, 203, 1);
 }
 
 .project i{
@@ -77,10 +84,15 @@ i {
 	font-size:1.2em;
 }
 
+.card {
+	background-color: rgba(175, 212, 216, 1);
+}
+
 /* Color Theme Swatches in RGBA */
-.color0{ background-color: rgba(200, 200, 200, 1); }
-.color1{ background-color: rgba(201, 255, 245, 1); }
-.color2{ background-color: rgba(183, 232, 209, 1); }
-.color3{ background-color: rgba(214, 255, 224, 1); }
-.color4{ background-color: rgba(185, 232, 183, 1); }
-.color5{ background-color: rgba(222, 255, 201, 1); }
+
+
+.color2 { background-color: rgba(242, 99, 111, 1); }
+.color4 { background-color: rgba(191, 3, 38, 1); }
+.color1 {background-color: rgb(216, 186, 203); }
+.color3 {background-color: rgba(175, 212, 216, 1); }
+.color0 {background-color: rgba(3, 165, 106, 1); }
