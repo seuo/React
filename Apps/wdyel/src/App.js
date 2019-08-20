@@ -13,7 +13,7 @@ class App extends Component {
 	constructor(props) {
 		super(props);
 			this.state = {
-				activeView:'nav',
+				activeView:'projects',
 				projects:[{
 					id:1,
 					name:'Build an App',
@@ -84,9 +84,9 @@ render () {
 			<div className="app">
 				
 				<View viewName="projects" activeView={this.state.activeView} className="color1">
-				<div className="header "><h2>Rate your Ice Cream</h2><i onClick={() => this.setActiveView('add-project')} className="fas fa-plus"></i><i onClick={() => this.setActiveView('nav')} className="fas fa-window-close"></i></div>
+				<div className="header "><div className="navbar"><i onClick={() => this.setActiveView('nav')} className="fas fa-bars"></i></div><h2>Rate your Ice Cream</h2><div className="navadd"><div className="addIcecream" onClick={() => this.setActiveView('add-project')} ><img src="add-icecream.png" alt="icecream" class="icecream" /></div></div></div>
 					<div className="main">
-						
+
 						{
 							this.state.projects.map((project) => {
 								var projectProps = {
@@ -100,7 +100,6 @@ render () {
 								return (<Project {...projectProps} />);
 							})
 						}
-
 					</div>
 				</View>
 				<View viewName="add-project" activeView={this.state.activeView} className="color2">
