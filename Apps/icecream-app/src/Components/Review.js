@@ -1,4 +1,4 @@
-import React, {Component} from 'react',
+import React, {Component} from 'react';
 
 class Review extends Component {
     constructor(props) {
@@ -9,19 +9,19 @@ class Review extends Component {
     }
 
     handleDeleteClick = () => {
-        let {deleteReview.id} = this.props;
+        var {deleteReview,id} = this.props;
         deleteReview(id);
     }
 
     handleEditClick = () => {
-        let {setActiveView, setReviewToUpdate, id} = this.props;
-        setActive('edit-review')
+        var {setActiveView, setReviewToUpdate, id} = this.props;
+        setActiveView('edit-review')
         setReviewToUpdate(id)
     }
 
     render() {
 
-        let {user,flavour,rating} = this.props;
+        var {user,flavour,rating} = this.props;
         
         return (
             <div className="card review">

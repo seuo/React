@@ -11,9 +11,9 @@ var urlPrefix = ''
 class App extends Component {
   constructor(props) {
     super(props);
-      this.state {
-        activeView:'reviews'
-        reviewToUpdate:null
+      this.state = {
+        activeView:'reviews',
+        reviewToUpdate:null,
         reviews:[{
           id:1,
           user:'user1',
@@ -77,7 +77,7 @@ render() {
 					<div className="main">
             <h3>Reviews</h3>
             {
-              this.state.reviews.map(review) => {
+              this.state.reviews.map((review) => {
                 var reviewProps = {
                   ...reviews,
                   key:review.id,
