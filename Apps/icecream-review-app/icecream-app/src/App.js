@@ -1,12 +1,12 @@
 import React,{Component} from 'react';
 import axios from 'axios';
-import View from './Components/view'
+import View from './Components/View'
 import Review from './Components/Review';
 import AddReview from './Components/AddReview';
 import EditReview from './Components/EditReview';
 import './App.css';
 
-var urlPrefix = ''
+var urlPrefix = 'http://localhost:3000'
 
 class App extends Component {
   constructor(props) {
@@ -17,17 +17,18 @@ class App extends Component {
         reviews:[{
           id:1,
           user:'user1',
+          parlour:'Wendys',
           flavour:'Chocolate',
           rating:5
         }]
       }
   }
 
-  setActiveView = (view) => {
-    this.state({
-      activeView:view
-    })
-  }
+	setActiveView = (view) => {
+		this.setState({
+			activeView:view
+		})
+	};
 
   setReviewToUpdate = (id) => {
     var matchedReview = this.state.reviews.find((review) => {
@@ -36,7 +37,7 @@ class App extends Component {
     this.setState({reviewToUpdate:matchedReview});
   }
 
-  getReviews = () => {
+  getReviews = (data) => {
     axios.get(urlPrefix+ '/reviews',data)
     .then (res =>{
       this.setState({reviews:res.data})
@@ -73,17 +74,16 @@ render() {
   return (
     <div className="app">
 				<View viewName="reviews" activeView={this.state.activeView} className="color1">
-				<div className="header "><div className="navbar"><i onClick={() => this.setActiveView('nav')} className="fas fa-bars"></i></div><h2>Rate your Ice Cream</h2><div className="navadd"><div className="addIcecream" onClick={() => this.setActiveView('add-project')} ><img src="add-icecream.png" alt="icecream" class="icecream" /></div></div></div>
+				<div className="header "><h2>Rate your Ice Cream</h2><div className="navadd"><div className="addIcecream" onClick={() => this.setActiveView('add-review')} ><img src="add-icecream.png" alt="icecream" class="icecream" /></div></div></div>
 					<div className="main">
-            <h3>Reviews</h3>
             {
               this.state.reviews.map((review) => {
                 var reviewProps = {
-                  ...reviews,
+                  ...review,
                   key:review.id,
                   setActiveView:this.setActiveView,
                   setReviewToUpdate:this.setReviewToUpdate,
-                  deleteReview:this.setDeleteReview
+                  deleteReview:this.deleteReview
                 };
                 return (<Review {...reviewProps}/>);
               })
@@ -92,13 +92,13 @@ render() {
             </div>
           </View>
           <View viewName="add-review" activeView={this.state.activeView} className="color2">
-					<div className="header"><i onClick={() => this.setActiveView('nav')} className="fas fa-window-close"></i></div>
+					<div className="header"><i onClick={() => this.setActiveView('reviews')} className="fas fa-window-close"></i></div>
 					<div className="main">
             <AddReview addReview ={this.addReview} setActiveView={this.setActiveView}/>
 					</div>
-				</View>
-				<View viewName="edit-review" activeView={this.state.activeView} className="color3">
-					<div className="header"><i onClick={() => this.setActiveView('projects')} className="fas fa-plus"></i><i onClick={() => this.setActiveView('nav')} className="fas fa-bars"></i></div>
+				  </View>
+				  <View viewName="edit-review" activeView={this.state.activeView} className="color3">
+					<div className="header"><i onClick={() => this.setActiveView('reviews')} className="fas fa-window-close"></i></div>
 					<div className="main">
 						<h3>Edit Your Review</h3>
             <EditReview {...this.state.reviewToUpdate} updateReview={this.updateReview} setActiveView={this.setActiveView}/>

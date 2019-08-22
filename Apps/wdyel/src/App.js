@@ -44,39 +44,39 @@ class App extends Component {
 	}
 
 
-	getProjects = () => {
-		axios.get(urlPrefix+'/projects')
-		.then(res => {
-			 this.setState({projects:res.data});
-		});
-	}
+	// getProjects = () => {
+	// 	axios.get(urlPrefix+'/projects')
+	// 	.then(res => {
+	// 		 this.setState({projects:res.data});
+	// 	});
+	// }
 
-	addProjects = (data) => {
-		axios.post(urlPrefix+'/projects',data)
-		.then(res => {
-			this.getProjects()
-		})
-	}
+	// addProjects = (data) => {
+	// 	axios.post(urlPrefix+'/projects',data)
+	// 	.then(res => {
+	// 		this.getProjects()
+	// 	})
+	// }
 
-	deleteProjects = (id) => {
-		axios.delete(urlPrefix+'/projects/'+id)
-		.then(res => {
-			this.getProjects();
-			// console.log(res);
-		})
-	}
+	// deleteProjects = (id) => {
+	// 	axios.delete(urlPrefix+'/projects/'+id)
+	// 	.then(res => {
+	// 		this.getProjects();
+	// 		// console.log(res);
+	// 	})
+	// }
 
-	updateProject = (id,data) => {
-		axios.put(urlPrefix+'/projects/'+id,data)
-		.then(res => {
-			this.getProjects();
-			// console.log(res)
-		})
-	}
+	// updateProject = (id,data) => {
+	// 	axios.put(urlPrefix+'/projects/'+id,data)
+	// 	.then(res => {
+	// 		this.getProjects();
+	// 		// console.log(res)
+	// 	})
+	// }
 
-	componentDidMount(){
-		this.getProjects();
-	}
+	// componentDidMount(){
+	// 	this.getProjects();
+	// }
 
 render () {
 	

@@ -15,25 +15,26 @@ class Review extends Component {
 
     handleEditClick = () => {
         var {setActiveView, setReviewToUpdate, id} = this.props;
-        setActiveView('edit-review')
-        setReviewToUpdate(id)
+        setActiveView('edit-review');
+        setReviewToUpdate(id);
     }
 
     render() {
 
-        var {user,flavour,rating} = this.props;
+        var {user,parlour,flavour,rating} = this.props;
         
         return (
             <div className="card review">
             <img className="card-img-top" src="icecream.jpg" alt="Card image cap" />
             <div className="card-body">
                 <h5 className="card-title">{user}</h5>
+                <p className="card-stars">{parlour}</p>
                 <p className="card-text">{flavour}</p>
                 <p className="card-stars">{rating}</p>
                 <p>
                     <i className="fas fa-heart"></i>
                     <i onClick={this.handleEditClick} className="fas fa-edit"></i>
-                    <i onClick={this.handleTrashClick} className="fas fa-trash"></i>
+                    <i onClick={this.handleDeleteClick} className="fas fa-trash"></i>
                 </p>
             
             </div>
