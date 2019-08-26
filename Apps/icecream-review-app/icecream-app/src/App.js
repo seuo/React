@@ -6,7 +6,7 @@ import AddReview from './Components/AddReview';
 import EditReview from './Components/EditReview';
 import './App.css';
 
-var urlPrefix = 'http://localhost:3000'
+var urlPrefix = 'http://localhost:3004'
 
 class App extends Component {
   constructor(props) {
@@ -74,8 +74,10 @@ render() {
   return (
     <div className="app">
 				<View viewName="reviews" activeView={this.state.activeView} className="color1">
-				<div className="header "><h2>Rate your Ice Cream</h2><div className="navadd"><div className="addIcecream" onClick={() => this.setActiveView('add-review')} ><img src="add-icecream.png" alt="icecream" class="icecream" /></div></div></div>
+				<div className="header "><h2>Rate your Ice Cream</h2><div className="navadd"><div className="addIcecream" onClick={() => this.setActiveView('add-review')} ><img src="add-icecream.png" alt="icecream" class="icecream" /></div></div>
+         </div>
 					<div className="main">
+          <div className="drips"><img src="chocolate-drops.png" alt=""/></div>
             {
               this.state.reviews.map((review) => {
                 var reviewProps = {
@@ -89,6 +91,7 @@ render() {
               })
 
             }
+            
             </div>
           </View>
           <View viewName="add-review" activeView={this.state.activeView} className="color2">

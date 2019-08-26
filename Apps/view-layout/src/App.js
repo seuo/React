@@ -6,7 +6,8 @@ import AddProject from './Components/addProjectForm';
 import EditProject from './Components/editProjectForm';
 import './App.css';
 
-var urlPrefix = 'http://10.2.24.38:4000/api'
+// var urlPrefix = 'http://localhost:3001'
+var urlPrefix = 'http://10.2.24.43:4000/api'
 
 class App extends Component {
 	constructor(props) {
@@ -55,6 +56,13 @@ class App extends Component {
 		.then(res => {
 			this.getProjects()
 		})
+	}
+
+	uploadFile = (formData) => {
+	
+		var settings = { headers: {'Content-Type': 'multipart/form-data' }}
+		return	axios.post(urlPrefix+'/upload',formData,settings)
+
 	}
 
 	deleteProjects = (id) => {
@@ -106,7 +114,8 @@ render () {
 					<div className="header"><i onClick={() => this.setActiveView('nav')} className="fas fa-window-close"></i></div>
 					<div className="main">
 							<h3>Add a project</h3>
-						<AddProject addProjects={this.addProjects} setActiveView={this.setActiveView}/>
+						<AddProject uploadFile={this.uploadFile}  setActiveView={this.setActiveView}
+						addProjects={this.addProjects}/>
 					</div>
 				</View>
 				<View viewName="edit-project" activeView={this.state.activeView} className="color3">
